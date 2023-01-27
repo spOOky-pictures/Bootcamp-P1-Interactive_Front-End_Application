@@ -6,14 +6,15 @@ Github repo: https://github.com/spOOky-pictures/Bootcamp-P1-Interactive_Front-En
   
 Create a new branch for each task, making sure the name includes Branch ID, Category ID and Short name in below format:  
 > ID-cat_id-short_name
-  
+
 Example:  
 > 2vm838x-FE-add_modal
    
 ### Branch ID  
 To get Branch ID, click on task in GitHub Projects and use the ID number without a leading hash "#" as only alpha-numeric values are accepted in Git.  
 Example video:  
-<video src="https://spooky.si/videos/example1.mov"></video>
+
+https://user-images.githubusercontent.com/41340032/215188328-ef59fea6-fece-47be-bb6f-a142dc5cccf4.mov
   
 Example:  
 > **#22** becomes **22**  
