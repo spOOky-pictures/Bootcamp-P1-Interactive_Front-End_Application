@@ -8,7 +8,7 @@ Create a new branch for each task, making sure the name includes Branch ID, Cate
 > ID-cat_id-short_name
 
 Example:  
-> 2vm838x-FE-add_modal
+> 22-FE-add_modal
    
 ### Branch ID  
 To get Branch ID, click on task in GitHub Projects and use the ID number without a leading hash "#" as only alpha-numeric values are accepted in Git.  
@@ -32,11 +32,12 @@ Please use below table for reference:
 Names of branches should be short (max 4 words) and descriptive.  
 Examples of good naming convention:  
 
-> 8712-FE-**add_testing_module**  
-> 3kgdx5x-BUG-**logo_alignment_issue**  
-> 99dggw3-FE-**modal_popup_added**
+> 8-FE-**add_testing_module**  
+> 34-BUG-**logo_alignment_issue**  
+> 76-FE-**modal_popup_added**
   
 Examples of bad naming convention:  
   
-> p94hfv6g-FE-**upgradejqueryversionloginmodule**  
-> 28pdx9x-BUG-**creates_a_banner_that_displays_a_list_of_categories**
+> 7-FE-**upgradejqueryversionloginmodule**  
+> **creates_a_banner_that_displays_a_list_of_categories**
+> **new_branch_1**
