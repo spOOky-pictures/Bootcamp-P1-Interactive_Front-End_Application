@@ -13,7 +13,7 @@ Example:
 ### Branch ID  
 To get Branch ID, click on task in GitHub Projects and use the ID number without a leading hash "#" as only alpha-numeric values are accepted in Git.  
 Example video:  
-<https://spooky.si/movies/example1.mov?view=open>  
+<video src="https://spooky.si/videos/example1.mov"></video>
   
 Example:  
 > **#22** becomes **22**  
