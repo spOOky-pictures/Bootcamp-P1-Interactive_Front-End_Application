@@ -2,10 +2,11 @@
 
 The first group project for Bootcamp.
 
-Github repo: https://github.com/spOOky-pictures/Bootcamp-P1-Interactive_Front-End_Application
+Github repo: https://github.com/spOOky-pictures/Bootcamp-P1-Interactive_Front-End_Application  
+Published website: https://spooky-pictures.github.io/Bootcamp-P1-Interactive_Front-End_Application
   
 Create a new branch for each task, making sure the name includes Branch ID, Category ID and Short name in below format:  
-> ID-cat_id-short_name
+> branch_id-CATEGORY_ID-short_name
 
 Example:  
 > 22-FE-add_modal
