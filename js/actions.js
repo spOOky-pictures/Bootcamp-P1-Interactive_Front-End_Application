@@ -3,10 +3,19 @@
 var searchButton = $("#searchBtn");
 var searchInput = $("#searchValue");
 
+//Empty array for ingredients in local storage
+var previousSearches = [];
+
 //On click function for search button
 searchButton.on("click", function(event){
     event.preventDefault();
     var userInput = searchInput.val().trim();
+//Push user input into local storage
+
+//validation for empty user input
+    if(userInput === ""){
+        return;
+    } else {
 //Tasty API Query one - list of meals
     const settings = {
         "async": true,
@@ -25,5 +34,5 @@ searchButton.on("click", function(event){
         for ( var i = 0; i < response.results.length; i++){
             console.log(response.results[i].id);
         }
-    });
+    });}
 })
