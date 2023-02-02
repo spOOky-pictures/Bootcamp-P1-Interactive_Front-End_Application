@@ -12,7 +12,7 @@
 
 // Selectors for search button
 //TODO - change id names HTML dependant
-var searchButton = $("#searchBtn");
+var searchButton = $(".submit");
 var searchInput = $("#searchValue");
 
 //Empty array for ingredients in local storage
@@ -73,12 +73,18 @@ function loadPreviousItems(){
                 for(i = 0; i < historyArraySlice.length; i++){
     //TODO need to replace id/class to actual HTML id/class for what is being appended 
                 var newItemBtn = $("<button>").text(historyArraySlice[i]);
+                newItemBtn.attr("class", "prevSearch");
                 $("#testButtons").append(newItemBtn);
                 }
         }
-}
+    }
+
+//Previous search buttons on click to push input to search bar
+$(".prevSearch").on("click", function(){
+        var prevInput = this.innerHTML;
+        searchInput.val(prevInput);
+    });
+
 })
 
-    });
-})
 
