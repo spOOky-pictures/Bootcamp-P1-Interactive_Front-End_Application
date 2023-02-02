@@ -10,12 +10,13 @@ var previousSearches = [];
 searchButton.on("click", function(event){
     event.preventDefault();
     var userInput = searchInput.val().trim();
-//Push user input into local storage
-
 //validation for empty user input
     if(userInput === ""){
         return;
     } else {
+//Push user input into local storage
+previousSearches.push(userInput);
+localStorage.setItem("Previous Ingredients", previousSearches);
 //Tasty API Query one - list of meals
     const settings = {
         "async": true,
