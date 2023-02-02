@@ -8,7 +8,7 @@ var previousSearches = [];
 
 
 //Document ready function
-    $(document).ready(function () {
+$(document).ready(function () {
 
 
 //On load, local storage is pushed to screen
@@ -46,14 +46,19 @@ localStorage.setItem("Previous Ingredients", previousSearches);
     });}
 })
 
+//function to load historical searches to the screen as buttons
 function loadPreviousItems(){
     var historyString = localStorage.getItem("Previous Ingredients");
+    // validation for if the local storage is empty
         if(historyString === ""){
             return;
         } else {
+    //for loop for the localStorage array that pushes them as buttons to the screen.
             var historyArray = historyString.split(',');
                 for(i = 0; i < historyArray.length; i++){
-                console.log(historyArray[i])
+    //TODO need to replace id/class to actual HTML id/class for what is being appended 
+                var newItemBtn = $("<button>").text(historyArray[i]);
+                $("#testButtons").append(newItemBtn);
                 }
         }
 }
