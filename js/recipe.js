@@ -52,5 +52,16 @@ function modalButton (responseURL) {
             videoModalButton.attr("data-target", "#exampleModal");
             videoModalButton.text("Recipe video!")
         footerDiv.append(videoModalButton);
+
+    //modal content
+        //div one
+        var modalDivOne = $("<div>").attr("class", "modal fade");
+        modalDivOne.attr("id", "exampleModal");
+        modalDivOne.attr("tabindex", "-1");
+        modalDivOne.attr("aria-labelledby", "exampleModalLabel");
+        modalDivOne.attr("aria-hidden", "true");
+        //div two
+        var modalDivTwo = 
+
 } 
 
