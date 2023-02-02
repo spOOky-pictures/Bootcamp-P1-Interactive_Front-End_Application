@@ -11,7 +11,7 @@ searchButton.on("click", function(event){
     const settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://tasty.p.rapidapi.com/recipes/list?from=0&size=8&q=Chicken",
+        "url": "https://tasty.p.rapidapi.com/recipes/list?from=0&size=8&q=" + userInput,
         "method": "GET",
         "headers": {
             "X-RapidAPI-Key": "78e5609727msh1ba34c0ebc625dcp184ea7jsn9d56a3cb8dc5",
