@@ -50,5 +50,9 @@ html, body {
 
 .searchBtn {
     background-color: rgb(206, 71, 71);
-    border-color:  rgb(206, 71, 71);;
+    border-color:  rgb(206, 71, 71);
+}
+
+.recentItem {
+    background-color: rgb(206, 71, 71);
 }
