@@ -12,7 +12,7 @@
 
 // Selectors for search button
 //TODO - change id names HTML dependant
-var searchButton = $(".search");
+var searchButton = $(".submit");
 var searchInput = $("#searchValue");
 
 //Empty array for ingredients in local storage
