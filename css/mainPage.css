@@ -1,0 +1,54 @@
+.container {
+    background-color: antiquewhite;
+    margin: auto;
+}
+
+.logoContainer {
+    min-height: 200px;
+}
+
+.descriptionText {
+    min-height: 100px;
+    font-weight: 500;
+    font-size: 25px;
+    font-style: italic;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.search {
+    margin-bottom: 100px;
+}
+
+.recentSearches {
+    min-height: 100px;
+}
+
+html, body {
+    height: 100%;
+    background-color: snow;
+}
+
+.container-fluid {
+    height: 100%;
+    display: flex;
+}
+
+.searchInput {
+    height: 100%;
+    background-color: rgb(206, 71, 71);
+    color: white;
+}
+
+.searchInput:focus {
+    background-color: rgb(206, 71, 71);
+    color: white;
+}
+
+.searchInput::placeholder {
+    color: white;
+}
+
+.searchBtn {
+    background-color: rgb(206, 71, 71);
+    border-color:  rgb(206, 71, 71);;
+}
