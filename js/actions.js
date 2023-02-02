@@ -6,6 +6,14 @@ var searchInput = $("#searchValue");
 //Empty array for ingredients in local storage
 var previousSearches = [];
 
+
+//Document ready function
+    $(document).ready(function () {
+
+
+//On load, local storage is pushed to screen
+loadPreviousItems();
+
 //On click function for search button
 searchButton.on("click", function(event){
     event.preventDefault();
@@ -36,4 +44,17 @@ localStorage.setItem("Previous Ingredients", previousSearches);
             console.log(response.results[i].id);
         }
     });}
+})
+
+function loadPreviousItems(){
+    var historyString = localStorage.getItem("Previous Ingredients");
+        if(historyString === ""){
+            return;
+        } else {
+            var historyArray = historyString.split(',');
+                for(i = 0; i < historyArray.length; i++){
+                console.log(historyArray[i])
+                }
+        }
+}
 })
