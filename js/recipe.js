@@ -39,6 +39,18 @@ drinkGenBtn.attr("id","gen-drink");
 
 drinkCardBody.append(drinkGenBtn)
 
+//Function to push modal onto page - add to on click for recipe result click.
+function modalButton (responseURL) {
+//TODO need to change targeted id to match recipe page
+    var footerDiv = $("#pageFooter");
 
-
+    //adding modal launch button to page
+        var videoModalButton = $("<button>");
+            videoModalButton.attr("type", "button");
+            videoModalButton.attr("class", "btn btn-primary");
+            videoModalButton.attr("data-toggle", "modal");
+            videoModalButton.attr("data-target", "#exampleModal");
+            videoModalButton.text("Recipe video!")
+        footerDiv.append(videoModalButton);
+} 
 
