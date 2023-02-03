@@ -38,7 +38,34 @@ drinkGenBtn.attr("id","gen-drink");
 
 
 drinkCardBody.append(drinkGenBtn)
+  
+// .on("click") function associated with the drink button
+$(".btn-success").on("click", function(event) {
+   event.preventDefault();
 
+   // Constructing an URL for the Drinks Digital API
+   const settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "https://drinks-digital1.p.rapidapi.com/v1/cocktails?limit=20",
+      "method": "GET",
+      "headers": {
+         "X-RapidAPI-Key": "e6aabc2264msh0e89a221f46d6cfp1bcfdfjsn41ffdc3bf50e",
+         "X-RapidAPI-Host": "drinks-digital1.p.rapidapi.com"
+      }
+   };
+   
+   $.ajax(settings).done(function (response) {
+      var results = response.data;
+      var result = response[Math.floor(Math.random() * results.length)]
 
+      var title = result.cocktail_name;
+      var description = result.description;
+
+      drinkTitle.append(title);
+      drinkDescription.append(description);
+   });
+   
+ });
 
 
