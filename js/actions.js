@@ -61,8 +61,10 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
         }       
     })
 };
+
+//TODO comment this back in when needed
 // triggers getRecipeIds function
-getRecipeIds("potato,mushroom");
+//getRecipeIds("potato,mushroom");
 
 // -drink card pulls drink Name, Image and URL for randomly selected drink
 // -recipe sections pulls recipe Name, Ingredients and Instructions from API
@@ -119,7 +121,7 @@ function loadPreviousItems(){
     //TODO need to replace id/class to actual HTML id/class for what is being appended 
                 var newItemBtn = $("<button>").text(historyArraySlice[i]);
                 newItemBtn.attr("class", "prevSearch");
-                $(".recentSearches").append(newItemBtn);
+                $("#recentResults").append(newItemBtn);
                 }
         }
     }
