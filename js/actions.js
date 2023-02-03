@@ -119,7 +119,7 @@ function loadPreviousItems(){
     //TODO need to replace id/class to actual HTML id/class for what is being appended 
                 var newItemBtn = $("<button>").text(historyArraySlice[i]);
                 newItemBtn.attr("class", "prevSearch");
-                $("#testButtons").append(newItemBtn);
+                $(".recentSearches").append(newItemBtn);
                 }
         }
     }
