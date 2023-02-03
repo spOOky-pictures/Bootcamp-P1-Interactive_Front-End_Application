@@ -62,7 +62,7 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
     })
 };
 // triggers getRecipeIds function
-getRecipeIds("potato,mushroom");
+// getRecipeIds("potato,mushroom");
 
 // -drink card pulls drink Name, Image and URL for randomly selected drink
 // -recipe sections pulls recipe Name, Ingredients and Instructions from API
@@ -73,7 +73,7 @@ getRecipeIds("potato,mushroom");
 // Selectors for search button
 //TODO - change id names HTML dependant
 var searchButton = $(".searchButton");
-var searchInput = $("#searchValue");
+var searchInput = $("#homeScreen .searchInput");
 
 //Empty array for ingredients in local storage
 var previousSearches = [];
@@ -89,11 +89,15 @@ loadPreviousItems();
 //On click function for search button
 searchButton.on("click", function(event){
     event.preventDefault();
+    var elHomeScreen = $("#homeScreen"); 
     var userInput = searchInput.val().trim();
 //validation for empty user input
     if(userInput === ""){
         return;
     } else {
+        $("#headerSearchBar").removeClass("d-none");
+        $("#homeScreen").addClass("d-none");
+        $("#resultsSection").removeClass("d-none");
 //Push user input into local storage
 previousSearches.push(userInput);
 localStorage.setItem("Previous Ingredients", previousSearches);
