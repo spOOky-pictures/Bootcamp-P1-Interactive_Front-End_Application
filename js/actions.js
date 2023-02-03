@@ -82,14 +82,12 @@ var previousSearches = [];
 //Document ready function
 $(document).ready(function () {
 
-
 //On load, local storage is pushed to screen
 loadPreviousItems();
 
 //On click function for search button
 searchButton.on("click", function(event){
     event.preventDefault();
-    var elHomeScreen = $("#homeScreen"); 
     var userInput = searchInput.val().trim();
 //validation for empty user input
     if(userInput === ""){
