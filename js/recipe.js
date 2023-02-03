@@ -61,7 +61,47 @@ function modalButton (responseURL) {
         modalDivOne.attr("aria-labelledby", "exampleModalLabel");
         modalDivOne.attr("aria-hidden", "true");
         //div two
-        var modalDivTwo = 
+        var modalDivTwo = $("<div>").attr("class", "modal-dialog");
+        modalDivOne.append(modalDivTwo);
+        //div three
+        var modalDivThree = $("<div>").attr("class", "modal-content");
+        modalDivTwo.append(modalDivThree);
+        //div four and header contents
+        var modalDivFour = $("<div>").attr("class", "modal-header");
+        modalDivThree.append(modalDivFour);
+        var modalHeader = $("<h5>").attr("class", "modal-title");
+        modalHeader.attr("id", "exampleModalLabel");
+        modalHeader.text("Recipe video");
+        modalDivFour.append(modalHeader);
+        var modalClose = $("<button>").attr("type", "button");
+        modalClose.attr("class", "close");
+        modalClose.attr("data-dismiss", "modal");
+        modalClose.attr("aria-label", "Close");
+        modalDivFour.append(modalClose);
+        var modalCloseSpan = $("<span>").attr("aria-hidden", "true");
+        modalCloseSpan.text("x");
+        modalClose.append(modalCloseSpan);
+        //div five modal body
+        var modalDivFive = $("<div>").attr("class", "modal-body");
+        modalDivThree.append(modalDivFive);
+            //TODO width/height subject to change
+        var modalVideo = $("<video>").attr("width", "400px");
+        modalVideo.attr("height", "auto");
+        modalVideo.attr("controls");
+        modalVideo.attr("autoplay");
+        modalDivFive.append(modalVideo);
+    //Line below contains Amazon Web Services URL from API queryURL (passed into function)
+            var videoSource = $("<source>").attr("src", responseURL);
+        videoSource.attr("type", "video/mp4");
+        modalVideo.append(videoSource);
+        //div six modal footer
+        var modalDivSix = ("<div>").attr("class", "modal-footer");
+        modalDivThree.append(modalDivSix);
+        var modalFooterClose = $("<button>").attr("type", "button");
+        modalFooterClose.attr("class", "btn btn-secondary");
+        modalFooterClose.attr("data-dismiss", "modal");
+        modalFooterClose.text("Close");
+        modalDivSix.append(modalFooterClose);
 
 } 
 
