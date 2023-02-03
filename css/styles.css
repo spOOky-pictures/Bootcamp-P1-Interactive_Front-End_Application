@@ -39,3 +39,22 @@
   color: white;
   margin: 20px 10px 20px 10px
 }
+
+.modalBtn {
+  background-color: var(--main-color);
+  box-shadow: var(--box-shadow);
+  border: none;
+  border-radius: 15px;
+}
+
+.modalBtn:hover {
+  background-color: var(--main-color-hover);
+  box-shadow: var(--box-shadow-hover);
+  border: none;
+  border-radius: 15px;
+}
+
+.modal-title {
+  font-size: 21px;
+  font-weight: 700;
+}
