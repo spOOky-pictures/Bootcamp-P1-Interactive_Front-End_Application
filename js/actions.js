@@ -62,10 +62,6 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
     })
 };
 
-//TODO comment this back in when needed
-// triggers getRecipeIds function
-//getRecipeIds("potato,mushroom");
-
 // -drink card pulls drink Name, Image and URL for randomly selected drink
 // -recipe sections pulls recipe Name, Ingredients and Instructions from API
 // -right-side section pulls recipe Image and Nutrition from API
@@ -99,6 +95,8 @@ searchButton.on("click", function(event){
 //Push user input into local storage
 previousSearches.push(userInput);
 localStorage.setItem("Previous Ingredients", previousSearches);
+// triggers getRecipeIds function
+getRecipeIds(userInput);
 
 //Tasty API Query one - list of meals
     
@@ -127,7 +125,8 @@ function loadPreviousItems(){
     }
 
 //Previous search buttons on click to push input to search bar
-$(".prevSearch").on("click", function(){
+$(".prevSearch").on("click", function(event){
+    event.preventDefault();
         var prevInput = this.innerHTML;
         searchInput.val(prevInput);
     });
