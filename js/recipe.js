@@ -40,5 +40,28 @@ drinkGenBtn.attr("id","gen-drink");
 drinkCardBody.append(drinkGenBtn)
 
 
+// RECIPE CARD
+var recipeCard = $("<div class = card>");
+// Card image
+var recipeImg = $('<img class = card-img-top>');
+recipeImg.addClass("show");
+recipeImg.attr("src", "https://placehold.co/1000x400?text=Tasty+Drink+(+Coming+Soon+)&font=Raleway");
+recipeCard.append(recipeImg);
+// Card body
+var recipeBody = $('<div class = card-body>');
+recipeCard.append(recipeBody);
+// Card title
+var recipeTitle = $('<h5 class = card-title>');
+recipeTitle.html("Recipe name");
+recipeBody.append(recipeTitle);
+// Card description
+var recipeDescription = $('<p class = recipe-text>');
+recipeDescription.html("Recipe description");
+recipeBody.append(recipeDescription);
+// Card link
+var recipeCardLink = $('<a class=card-link href: "recipes.html">');
+recipeBody.append(recipeCardLink);
+// Assign ID for styling
+recipeCard.attr("id", "recipe-card");
 
 
