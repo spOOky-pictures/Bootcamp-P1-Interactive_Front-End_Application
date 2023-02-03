@@ -61,6 +61,8 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
         }       
     })
 };
+
+//TODO comment this back in when needed
 // triggers getRecipeIds function
 //getRecipeIds("potato,mushroom");
 
