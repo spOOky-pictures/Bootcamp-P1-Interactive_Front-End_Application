@@ -57,15 +57,24 @@ $(".btn-success").on("click", function(event) {
    
    $.ajax(settings).done(function (response) {
       var results = response.data;
-      var result = response[Math.floor(Math.random() * results.length)]
+      
+      const randomDrink = (results) => {
+         const keys = Object.keys(results);
+         if (keys.length > 0) {
+            const index = Math.floor(keys.length * Math.random());
+            const key = keys[index];
+            const value = results[key];
+            return {index, key, value}
+         }
+         return null;
+      };
 
-      var title = result.cocktail_name;
-      var description = result.description;
+      var title = randomDrink.cocktail_name;
+      var description = randomDrink.description;
 
       drinkTitle.append(title);
       drinkDescription.append(description);
    });
-   
- });
+ })
 
 
