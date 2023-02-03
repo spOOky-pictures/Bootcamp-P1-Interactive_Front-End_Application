@@ -39,7 +39,7 @@ drinkGenBtn.attr("id","gen-drink");
 
 drinkCardBody.append(drinkGenBtn)
 
-//Function to push modal onto page - add to on click for recipe result click.
+//Function to push modal button and modal onto page - add onto the "on click" for recipe result click.
 function modalButton (responseURL) {
 //TODO need to change targeted id to match recipe page
     var footerDiv = $("#pageFooter");
@@ -60,6 +60,8 @@ function modalButton (responseURL) {
         modalDivOne.attr("tabindex", "-1");
         modalDivOne.attr("aria-labelledby", "exampleModalLabel");
         modalDivOne.attr("aria-hidden", "true");
+    //below append adds the modal to the page but it is invisble until activated by the button above
+    footerDiv.append(modalDivOne);
         //div two
         var modalDivTwo = $("<div>").attr("class", "modal-dialog");
         modalDivOne.append(modalDivTwo);
@@ -87,15 +89,15 @@ function modalButton (responseURL) {
             //TODO width/height subject to change
         var modalVideo = $("<video>").attr("width", "400px");
         modalVideo.attr("height", "auto");
-        modalVideo.attr("controls");
-        modalVideo.attr("autoplay");
+        modalVideo.attr("controls", "");
+        modalVideo.attr("autoplay", "");
         modalDivFive.append(modalVideo);
     //Line below contains Amazon Web Services URL from API queryURL (passed into function)
             var videoSource = $("<source>").attr("src", responseURL);
         videoSource.attr("type", "video/mp4");
         modalVideo.append(videoSource);
         //div six modal footer
-        var modalDivSix = ("<div>").attr("class", "modal-footer");
+        var modalDivSix = $("<div>").attr("class", "modal-footer");
         modalDivThree.append(modalDivSix);
         var modalFooterClose = $("<button>").attr("type", "button");
         modalFooterClose.attr("class", "btn btn-secondary");
