@@ -133,3 +133,9 @@ $(".prevSearch").on("click", function(){
     });
 
 })
+
+// function for home button to refresh page and go back to original state
+$("#homeButton").on("click", function(){
+    document.location.reload()
+})
+
