@@ -47,7 +47,7 @@ function modalButton (responseURL) {
     //adding modal launch button to page
         var videoModalButton = $("<button>");
             videoModalButton.attr("type", "button");
-            videoModalButton.attr("class", "btn btn-primary");
+            videoModalButton.attr("class", "btn btn-primary modalBtn");
             videoModalButton.attr("data-toggle", "modal");
             videoModalButton.attr("data-target", "#exampleModal");
             videoModalButton.text("Recipe video!")
