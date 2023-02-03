@@ -36,19 +36,19 @@ html, body {
 .searchInput {
     height: 100%;
     background-color: rgb(206, 71, 71);
-    color: white;
+    color: #fff;
 }
 
 .searchInput:focus {
     background-color: rgb(206, 71, 71);
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 .searchInput::placeholder {
-    color: white;
+    color: rgb(253, 253, 253);
 }
 
-.searchBtn {
+.searchButton {
     background-color: rgb(206, 71, 71);
     border-color:  rgb(206, 71, 71);
 }
