@@ -1,5 +1,5 @@
 //target main div
-var mainDiv = $('#main');
+var mainDiv = $('main');
 //make main div container  fluid so we can use bootstrap column system on it 
 mainDiv.addClass("container-fluid");
 
