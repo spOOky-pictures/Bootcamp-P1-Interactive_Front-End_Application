@@ -33,7 +33,7 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
     $.ajax(settings).done(function (response) {
         // assign results to Response variable
         let Response = response.results;
-        console.log(Response);
+    
         // defines and sets "count" variable for counting number of recipes 
         let count = 0;
         // defines number of recipes we want returned
@@ -44,14 +44,9 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
             // (making sure we only ever get returned recipes)
             // and also checks weather "count" variable has reached length of variable "recipes"
             if (String(Response[i].canonical_id).includes("recipe") && count < recipes) {
+     
+              
                 // defines all elements of the card with their attributes using jQuery
-                // let recipeCardLink = $("<a>").attr({class: "card-link", href: "recipes.html"}).addClass("col-lg-6").addClass("col-sm-12");;
-                // let recipeCard = $("<div>").attr("class", "card").css("width", "18rem").addClass("row");
-                // let recipeCardImage = $("<img>").attr("class", "card-img-top");
-                // let recipeCardBody = $("<div>").attr("class", "card-body");
-                // let recipeCardTitle = $("<h5>").attr("class", "card-title");
-                // attaches all elements to their respective parents to display a card in DOM
-                
                 let recipeCard = $("<div class=card>").addClass("mb3").addClass("col-lg-5").addClass("col-sm-12").attr("id","result-card");
                 let recipeImgDiv = $('<div class="col-4">').attr("id","img-div");
                 let recipeCardLink= $('<a>').attr({class: "card-link", href: "recipes.html"}).addClass("row g-0"); 
@@ -59,10 +54,7 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
                 let recipeBodyDiv = $('<div class="col-8">').attr("id","body-div");
                 let recipeCardBody = $('<div class=card-body>');
                 let recipeCardTitle = $("<h5>").attr({class: "card-title"})
-
-
-
-
+                // attaches all elements to their respective parents to display a card in DOM
                 resultsRow.append(recipeCard);
                 recipeCard.append(recipeCardLink);
                 recipeCardLink.append(recipeImgDiv);
