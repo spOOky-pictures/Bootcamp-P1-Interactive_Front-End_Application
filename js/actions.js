@@ -53,10 +53,10 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
                 // attaches all elements to their respective parents to display a card in DOM
                 
                 let recipeCard = $("<div class=card>").addClass("mb3").addClass("col-lg-5").addClass("col-sm-12").attr("id","result-card");
-                let recipeImgDiv = $('<div class="col-md-4">').attr("id","img-div");
+                let recipeImgDiv = $('<div class="col-4">').attr("id","img-div");
                 let recipeCardLink= $('<a>').attr({class: "card-link", href: "recipes.html"}).addClass("row g-0"); 
                 let recipeCardImage = $('<img class=img-fluid>').addClass("rounded-start").attr("id","recipe-img");
-                let recipeBodyDiv = $('<div class="col-md-8">').attr("id","body-div");
+                let recipeBodyDiv = $('<div class="col-8">').attr("id","body-div");
                 let recipeCardBody = $('<div class=card-body>');
                 let recipeCardTitle = $("<h5>").attr({class: "card-title"})
 
