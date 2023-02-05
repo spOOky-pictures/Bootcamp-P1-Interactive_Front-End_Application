@@ -65,3 +65,7 @@ html, body {
     flex-grow: 3 !important;
     
 }
+
+.appLogo {
+    padding: 20px;
+}

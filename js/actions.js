@@ -1,9 +1,3 @@
-// -dropdown uses a predefined list of recipe categories
-// -clicking on search button takes search field value and recipe category to query API
-// -cards display last 3 recipes from an array stored in local storage
-// -searched ingredient gets stored in separate array and displayed in recently searched section
-// -clicking any of these buttons adds it's value to the search field with a space
-
 // assign variable to "main" div
 let mainDiv = $("main");
 // a variable that holds recipe IDs
@@ -80,11 +74,9 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
 // -drink card pulls drink Name, Image and URL for randomly selected drink
 // -recipe sections pulls recipe Name, Ingredients and Instructions from API
 // -right-side section pulls recipe Image and Nutrition from API
-
 // -clicking on video button opens a modal that displays a recipe Video from API and auto-plays it
 
 // Selectors for search button
-//TODO - change id names HTML dependant
 var searchButton = $(".searchButton");
 var searchInput = $("#searchValue");
 
@@ -113,10 +105,6 @@ localStorage.setItem("Previous Ingredients", previousSearches);
 $('#homeScreen').css("display","none");
 // triggers getRecipeIds function
 getRecipeIds(userInput);
-
-//Tasty API Query one - list of meals
-    
-//Getting response from API for list of recipes that include ingredient
     }
 })
 
