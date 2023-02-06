@@ -3,7 +3,7 @@ let mainDiv = $("main");
 // a variable that holds recipe IDs
 const recipeIds = [];
 //make a containter fluid to store search results in and append to main div
-let resultsDiv = $('<section class=container-fluid>');
+let resultsDiv = $('<section class=container-fluid>').css("display","none");
 mainDiv.append(resultsDiv);
 let resultsRow = $('<div class=row>').addClass("container-fluid").attr("id","results-row");
 resultsDiv.append(resultsRow);
@@ -103,6 +103,7 @@ searchButton.on("click", function(event){
 previousSearches.push(userInput);
 localStorage.setItem("Previous Ingredients", previousSearches);
 $('#homeScreen').css("display","none");
+resultsDiv.css("display","flex");
 // triggers getRecipeIds function
 getRecipeIds(userInput);
     }
