@@ -44,16 +44,12 @@ $(".btn-success").on("click", function(event) {
    event.preventDefault();
    
 
-   // Constructing an URL for the Drinks Digital API
+   // Constructing an URL for the Cocktails API
    const settings = {
       "async": true,
       "crossDomain": true,
-      "url": "https://drinks-digital1.p.rapidapi.com/v1/cocktails?limit=20",
+      "url": "http://api-cocktails.herokuapp.com/api/v1/cocktails?name=ginger",
       "method": "GET",
-      "headers": {
-         "X-RapidAPI-Key": "e340ac574emsh63e332762d5a073p1cd549jsnd394f6e76f3a",
-         "X-RapidAPI-Host": "drinks-digital1.p.rapidapi.com"
-      }
    };
    
    $.ajax(settings).done(function (response) {
@@ -63,9 +59,11 @@ $(".btn-success").on("click", function(event) {
 
       var item = response[Math.floor(Math.random() * response.length)];
       console.log(item);
-      var title = item.cocktail_name;
+      var image = item.image_thumb_url;
+      var title = item.name;
       var description = item.description;
-
+      
+      drinkImg.append(image);
       drinkTitle.append(title);
       drinkDescription.append(description);
    });
