@@ -3,6 +3,7 @@ box-shadow: 0px 20px 21px 3px rgba(0,0,0,0.75);
 width: 100%;
 padding: 0;
 max-height: 100px;
+min-height: 100px;
 }
 
 .searchForm {
@@ -57,6 +58,7 @@ html, body {
     flex-wrap: wrap;
     padding: 0;
     overflow-y: scroll;
+    flex-direction: column;
 }
 
 .searchInput {
@@ -93,6 +95,7 @@ html, body {
     min-height: 50px;
     margin-top: 10px;
     margin-bottom: 10px;
+}
 
 #recentResults {
     display: flex;
@@ -102,4 +105,9 @@ html, body {
 
 .appLogo {
     padding: 20px;
+    
+}
+
+#results-row {
+    min-height: 1000px;
 }
