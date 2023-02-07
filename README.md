@@ -33,7 +33,7 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 - Collaborators:  
 [David](https://github.com/Davvid96)  
-[Sanele](https://github.com/DumisileM)  
+[Dumisile](https://github.com/DumisileM)  
 [Elvis](https://github.com/NukeTurtle)  
 [Daniel](https://github.com/danielpsnz)  
 [Emma](https://github.com/EmH93)  
