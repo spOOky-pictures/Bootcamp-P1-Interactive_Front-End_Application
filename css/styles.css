@@ -118,3 +118,41 @@ div #recipe-img {
   object-fit: cover;
   position: absolute;
 }
+
+#recipe-main{
+  padding: 10px;
+  
+}
+.recipe-row{
+  border: 1px solid black;
+  justify-content: ;
+  justify-content: space-around;
+  
+}
+
+#recipe-image,#drink-card,#nutrition,#recipe-info,#vid-modal{
+  border: 1px dotted black;
+  margin: 5px;
+  
+  
+}
+#drink-card{
+  background-color: pink;
+}
+#nutrition{
+  background-color: rgb(160, 60, 160);
+}
+
+#recipe-info{
+  background-color: teal;
+  overflow-y: scroll;
+}
+
+#vid-modal{
+  background-color: yellow;
+}
+
+#recipe-image{
+  background-color: brown;
+}
+
