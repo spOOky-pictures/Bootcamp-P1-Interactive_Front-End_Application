@@ -3,10 +3,16 @@ let mainDiv = $("main");
 // a variable that holds recipe IDs
 const recipeIds = [];
 //make a containter fluid to store search results in and append to main div
-let resultsDiv = $('<section class=container-fluid>').css("display","none");
-mainDiv.append(resultsDiv);
+let resultsWrapper = $("<div>").attr("class", "row");
+let resultsDiv = $('<section class=container-fluid>').css("display","none").attr("class", "col-lg-12");
+resultsDiv.attr("id", "resultsDiv");
+var searchHeader = $("#headerSearchBar");
+resultsWrapper.append(searchHeader);
+resultsWrapper.append(resultsDiv)
+mainDiv.append(resultsWrapper);
 let resultsRow = $('<div class=row>').addClass("container-fluid").attr("id","results-row");
 resultsDiv.append(resultsRow);
+
 
 // function that pulls 8 recipes from API with Image and Name that displays them in separate cards, each linking to "recipes.html" page
 // the function takes one parameter that is a string of one or multiple (coma-separated) values
@@ -18,7 +24,7 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
         "url": `https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&q=${searchQuery}`,
         "method": "GET",
         "headers": {
-            "X-RapidAPI-Key": "e8943b6d91msh6efd506b4fc5910p102802jsn9031badcaece",
+            "X-RapidAPI-Key": "78e5609727msh1ba34c0ebc625dcp184ea7jsn9d56a3cb8dc5",
             "X-RapidAPI-Host": "tasty.p.rapidapi.com"
         }
     };
