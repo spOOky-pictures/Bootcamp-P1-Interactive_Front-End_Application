@@ -96,6 +96,8 @@ loadPreviousItems();
 //On click function for search button
 searchButton.on("click", function(event){
     event.preventDefault();
+    var resultsContainer = $("#results-row");
+    resultsContainer.empty();
     var userInput = searchInput.val().trim();
 //validation for empty user input
     if(userInput === ""){
