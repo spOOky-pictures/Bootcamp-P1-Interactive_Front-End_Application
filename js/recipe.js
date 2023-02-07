@@ -29,8 +29,30 @@ drinkGenBtn.attr("id","gen-drink");
 
 
 drinkCardBody.append(drinkGenBtn)
-  
 
+function getDrink(){
+    
+    const settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://drinks-digital1.p.rapidapi.com/v1/cocktails?limit=10",
+        "method": "GET",
+        "headers": {
+            "X-RapidAPI-Key": "a3e58689c4msh05163be274f5a0fp1e482cjsn52c38c025a06",
+            "X-RapidAPI-Host": "drinks-digital1.p.rapidapi.com"
+        }
+    };
+    
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+
+
+        for(let i=0; i < response.length;i++){
+            console.log(response[i].cocktail_name)
+        }
+    });
+}
+  
 //Function to push modal button and modal onto page - add onto the "on click" for recipe result click.
 function modalButton (responseURL) {
 //TODO need to change targeted id to match recipe page
