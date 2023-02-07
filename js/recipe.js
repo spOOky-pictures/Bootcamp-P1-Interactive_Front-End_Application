@@ -14,13 +14,6 @@ drinkCard.addClass("col-lg-2 col-sm-12");
 drinkCard.attr("id","drink-card")
 //append drink card to aside content
 asideContent.append(drinkCard)
-//make an image tag inside the card and giving bootstrap class of card-img-top
-var drinkImg = $('<img class=card-img-top>');
-//also added a class of show. on smaller screens(media query this should change to hide and set display to none)
-drinkImg.addClass("show")
-drinkImg.attr("src", "https://placehold.co/1000x400?text=Tasty+Drink+(+Coming+Soon+)&font=Raleway")
-//append image to drink card
-drinkCard.append(drinkImg);
 //create drink card body this is where snippet descripton will go of the drink will go
 var drinkCardBody = $('<div class= card-body>');
 //append card body to main drink card
@@ -48,8 +41,12 @@ $(".btn-success").on("click", function(event) {
    const settings = {
       "async": true,
       "crossDomain": true,
-      "url": "http://api-cocktails.herokuapp.com/api/v1/cocktails?name=ginger",
+      "url": "https://drinks-digital1.p.rapidapi.com/v1/cocktails?limit=20",
       "method": "GET",
+      "headers": {
+         "X-RapidAPI-Key": "e340ac574emsh63e332762d5a073p1cd549jsnd394f6e76f3a",
+         "X-RapidAPI-Host": "drinks-digital1.p.rapidapi.com"
+      }
    };
    
    $.ajax(settings).done(function (response) {
@@ -59,11 +56,11 @@ $(".btn-success").on("click", function(event) {
 
       var item = response[Math.floor(Math.random() * response.length)];
       console.log(item);
-      var image = item.image_thumb_url;
-      var title = item.name;
+      var title = item.cocktail_name;
       var description = item.description;
-      
-      drinkImg.append(image);
+   
+      drinkTitle.html(" ");
+      drinkDescription.html(" ");
       drinkTitle.append(title);
       drinkDescription.append(description);
    });
