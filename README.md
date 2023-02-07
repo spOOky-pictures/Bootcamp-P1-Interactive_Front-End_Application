@@ -1,4 +1,4 @@
-# <InFridge-Recipe-Generator>
+# InFridge Recipe Generator
 
 ## Description
 
