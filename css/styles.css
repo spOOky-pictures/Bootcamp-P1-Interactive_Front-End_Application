@@ -18,6 +18,28 @@
     color: white;
 }
 
+/* DRINKS CARD */
+.card {
+  background-color: var(--main-color);
+  border-radius: 0px;
+  margin-left: 10px;
+}
+
+.card-img-top {
+  margin-top: 10px;
+  border-radius: 0px;
+}
+
+.btn-success {
+  background-color: rgb(160, 160, 149);
+  color: black;
+  box-shadow: 0 1px 4px rgba(146, 161, 176, 0.3);
+}
+
+.btn-success:hover {
+  background-color: rgb(104, 104, 95);
+}
+
 .prevSearch {
   background-color: var(--main-color);
   border: none;
