@@ -3,10 +3,16 @@ let mainDiv = $("main");
 // a variable that holds recipe IDs
 const recipeIds = [];
 //make a containter fluid to store search results in and append to main div
-let resultsDiv = $('<section class=container-fluid>').css("display","none");
-mainDiv.append(resultsDiv);
+let resultsWrapper = $("<div>").attr("class", "row");
+let resultsDiv = $('<section class=container-fluid>').css("display","none").attr("class", "col-lg-12");
+resultsDiv.attr("id", "resultsDiv");
+var searchHeader = $("#headerSearchBar");
+resultsWrapper.append(searchHeader);
+resultsWrapper.append(resultsDiv)
+mainDiv.append(resultsWrapper);
 let resultsRow = $('<div class=row>').addClass("container-fluid").attr("id","results-row");
 resultsDiv.append(resultsRow);
+
 
 // function that pulls 8 recipes from API with Image and Name that displays them in separate cards, each linking to "recipes.html" page
 // the function takes one parameter that is a string of one or multiple (coma-separated) values
@@ -143,5 +149,10 @@ $(".prevSearch").on("click", function(event){
         searchInput.val(prevInput);
     });
 
+})
+
+// function for home button to refresh page and go back to original state
+$("#homeButton").on("click", function(){
+    document.location.reload()
 })
 

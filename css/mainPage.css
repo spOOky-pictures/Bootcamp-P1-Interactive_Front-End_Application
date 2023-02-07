@@ -111,3 +111,7 @@ html, body {
 #results-row {
     min-height: 1000px;
 }
+
+#resultsDiv {
+    padding-top: 20px;
+}
