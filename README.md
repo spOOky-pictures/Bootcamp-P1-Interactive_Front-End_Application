@@ -2,12 +2,11 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+This project was our group's first opportunity to work on a coding project collaboratively, it's been a fantastic opportunity to become beter rehearsed with using github branches and pull requests, as well as the github projects page. 
 
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+The deployed application itself was built on the idea of inspiring the user to try new, exciting recipes that they have never tried before, and basing the recipe suggestions on an ingredient of their choice - maybe something they always have in the fridge, ready to use. We wanted to build an easy to navigate interface that would provide the user with multiple options for dishes to give them variety, and on their chosen recipe - give them all the information and visual guidance necessary to make the dish. We also chose to include a drink API that generates a random drink recipe on the meal recipe page, giving the user more exciting recipes to try.
+
+The project required the use of multiple API's - which came with their own challenges - such as figuring out the multiple endpoints and query url parameter requirements. We also used a mixture of dynamic JQuery html generation and standard HTML,CSS builds to create the recipe results and information. The application also utilises the users local storage to record their most recent three ingredient searches (which are pushed to the landing page on load). The biggest challenge - which has also been very rewarding, has been learning to divide and work on tasks as a group.
 
 ## Table of Contents
 
@@ -18,7 +17,7 @@ Provide a short description explaining the what, why, and how of your project. U
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+The deployed application can be viewed via this [link](https://spooky-pictures.github.io/InFridge/)
 
 ## Usage
 
@@ -32,12 +31,18 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 ## Credits
 
-List your collaborators, if any, with links to their GitHub profiles.
+- Collaborators:  
+[David](https://github.com/Davvid96)  
+[Sanele](https://github.com/DumisileM)  
+[Elvis](https://github.com/NukeTurtle)  
+[Daniel](https://github.com/danielpsnz)  
+[Emma](https://github.com/EmH93)  
 
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
+- Resources Used:  
+[Tasty API](https://rapidapi.com/apidojo/api/tasty)  
+[Drinks Digital API](https://rapidapi.com/SaaSDev/api/drinks-digital1/)  
+[Bootstrap CSS and HTML](https://getbootstrap.com/docs/4.6/getting-started/introduction/)  
 
 ## License
 
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
+MIT License
