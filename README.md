@@ -1,44 +1,48 @@
-# InFridge
+# InFridge Recipe Generator
 
-The first group project for Bootcamp.
+## Description
 
-Github repo: https://github.com/spOOky-pictures/InFridge  
-Published website: https://spooky-pictures.github.io/InFridge
-  
-Create a new branch for each task, making sure the name includes Branch ID, Category ID and Short name in below format:  
-> branch_id-CATEGORY_ID-short_name
+This project was our group's first opportunity to work on a coding project collaboratively, it's been a fantastic opportunity to become beter rehearsed with using github branches and pull requests, as well as the github projects page. 
 
-Example:  
-> 22-FE-add_modal
-   
-### Branch ID  
-To get Branch ID, click on task in GitHub Projects and use the ID number without a leading hash "#" as only alpha-numeric values are accepted in Git.  
-Example video:  
+The deployed application itself was built on the idea of inspiring the user to try new, exciting recipes that they have never tried before, and basing the recipe suggestions on an ingredient of their choice - maybe something they always have in the fridge, ready to use. We wanted to build an easy to navigate interface that would provide the user with multiple options for dishes to give them variety, and on their chosen recipe - give them all the information and visual guidance necessary to make the dish. We also chose to include a drink API that generates a random drink recipe on the meal recipe page, giving the user more exciting recipes to try.
 
-https://user-images.githubusercontent.com/41340032/215188328-ef59fea6-fece-47be-bb6f-a142dc5cccf4.mov
-  
-Example:  
-> **#22** becomes **22**  
-  
-### Category ID  
-Category ID is set depending of the type of branch, weather it's a new feature being implemented or a bug that needs to be fixed.  
-Please use below table for reference:
-  
-| Category ID (cat_id)  | Category name (cat_name) | Category description (cat_desc)                                                        |
-| --------------------- | ------------------------ | -------------------------------------------------------------------------------------- |
-|         FE            |          Feature         | Developing a new feature or enhancement                                                |
-|         BUG           |           Bugs           | Fixing a bug on the live site that should be fixed and merged into the next deployment |
-  
-### Short name  
-Names of branches should be short (max 4 words) and descriptive.  
-Examples of good naming convention:  
+The project required the use of multiple API's - which came with their own challenges - such as figuring out the multiple endpoints and query url parameter requirements. We also used a mixture of dynamic JQuery html generation and standard HTML,CSS builds to create the recipe results and information. The application also utilises the users local storage to record their most recent three ingredient searches (which are pushed to the landing page on load). The biggest challenge - which has also been very rewarding, has been learning to divide and work on tasks as a group.
 
-> 8-FE-**add_testing_module**  
-> 34-BUG-**logo_alignment_issue**  
-> 76-FE-**modal_popup_added**
-  
-Examples of bad naming convention:  
-  
-> 7-FE-**upgradejqueryversionloginmodule**  
-> **creates_a_banner_that_displays_a_list_of_categories**
-> **new_branch_1**
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
+
+## Installation
+
+The deployed application can be viewed via this [link](https://spooky-pictures.github.io/InFridge/)
+
+## Usage
+
+Provide instructions and examples for use. Include screenshots as needed.
+
+To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+
+    ```md
+    ![alt text](assets/images/screenshot.png)
+    ```
+
+## Credits
+
+- Collaborators:  
+[David](https://github.com/Davvid96)  
+[Sanele](https://github.com/DumisileM)  
+[Elvis](https://github.com/NukeTurtle)  
+[Daniel](https://github.com/danielpsnz)  
+[Emma](https://github.com/EmH93)  
+
+- Resources Used:  
+[Tasty API](https://rapidapi.com/apidojo/api/tasty)  
+[Drinks Digital API](https://rapidapi.com/SaaSDev/api/drinks-digital1/)  
+[Bootstrap CSS and HTML](https://getbootstrap.com/docs/4.6/getting-started/introduction/)  
+
+## License
+
+MIT License
