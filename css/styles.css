@@ -119,23 +119,23 @@ div #recipe-img {
   position: absolute;
 }
 
-#recipe-main{
-  padding: 10px;
-  
-}
 .recipe-row{
   border: 1px solid black;
-  justify-content: ;
-  justify-content: space-around;
+  padding:30px;
+ justify-content: space-evenly;
+
   
 }
 
 #recipe-image,#drink-card,#nutrition,#recipe-info,#vid-modal{
   border: 1px dotted black;
-  margin: 5px;
+  margin:20px;
+ 
+ 
   
   
 }
+
 #drink-card{
   background-color: pink;
 }
@@ -146,6 +146,7 @@ div #recipe-img {
 #recipe-info{
   background-color: teal;
   overflow-y: scroll;
+  margin-left: 60px;
 }
 
 #vid-modal{
