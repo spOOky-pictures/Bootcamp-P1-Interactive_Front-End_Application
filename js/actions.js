@@ -158,6 +158,7 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
 
                 // click event for each individual recipe result card that displays data from array in it's own preset div
                 recipeCardLink.click(function() {
+                    $('#modal-body').empty();
                     recipePage.show();
                     recipeImage.attr("src", Response[i].thumbnail_url);
                     recipeName.text(Response[i].name);
@@ -172,23 +173,22 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
                         instructionP.html(instruction.display_text);
                         recipeText.append(instructionP);
                     })
+
+                    $("#modal-title").text(Response[i].name);
                     // recipeYield.text(Response[i].yields);
-                    recipeVideo.attr("src", Response[i].original_video_url);
-                    recipeVideo.src = Response[i].original_video_url;
-                    videoContainer.append(recipeVideo);
+                    if (Response[i].original_video_url){
+                        const video = `<video width="400px" height="auto" controls>
+                        <source src="${Response[i].original_video_url}" id="recipe-video" type=video/mp4> 
+                        </video>`
+                        $('#modal-body').append(video)
+                    }else{
+                        const noVideo = `<h2> Sorry, this recipe doesn't have video </h2>`
+                        $('#modal-body').append(noVideo)
+                    };
                 })
                 // pushes each found recipe to the "recipeIds" array 
                 recipeIds.push({"id": Response[i].id, "image": Response[i].thumbnail_url, "name": Response[i].name, "ingredients": ingredientArray, "instructions": instructionArray, "yields": Response[i].yields, "video": Response[i].original_video_url});
                 
-                // pushed each found recipe to the "recipeIds" array 
-                recipeIds.push(recipeID);
-
-                //put an on click event listener on the children of the anchor tag and call getvideo function
-                recipeCardTitle.click(function(event){
-                    // event.preventDefault()
-                    getVideo(recipeCard);
-
-                });
                 // increases "count" variable by 1 number
                 count++;
             }
