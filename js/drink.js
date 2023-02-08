@@ -19,7 +19,7 @@ drinkCardBody.append(drinkTitle)
 var drinkDescription = $('<p class=card-text>');
 drinkDescription.html(" ");
 drinkCardBody.append(drinkDescription);
-var drinkGenBtn = $('<a class=btn>').addClass("btn-success");
+var drinkGenBtn = $('<a class=btn>').addClass("btn-primary");
 drinkGenBtn.html("Generate Another Drink");
 drinkGenBtn.attr("id","gen-drink");
 
@@ -28,7 +28,7 @@ drinkCardBody.append(drinkGenBtn)
 
   
 // .on("click") function associated with the drink button
-$(".btn-success").on("click", function(event) {
+$(".btn-primary").on("click", function(event) {
     event.preventDefault();
     // Constructing an URL for the Cocktails API
     const settings = {
@@ -44,13 +44,9 @@ $(".btn-success").on("click", function(event) {
  
     $.ajax(settings).done(function (response) {
        var results = response.data;
- 
-       console.log(response);
- 
        var item = response[Math.floor(Math.random() * response.length)];
        var title = item.cocktail_name;
        var description = item.description;
- 
        drinkTitle.html(" ");
        drinkDescription.html(" ");
        drinkTitle.append(title);

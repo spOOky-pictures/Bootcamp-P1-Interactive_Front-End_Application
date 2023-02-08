@@ -159,13 +159,13 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
                 // click event for each individual recipe result card that displays data from array in it's own preset div
                 recipeCardLink.click(function() {
                     $('#modal-body').empty();
+                   
                     recipePage.show();
                     recipeImage.attr("src", Response[i].thumbnail_url);
                     recipeName.text(Response[i].name);
                     Response[i].sections[0].components.forEach(ingredient => {
                         let ingredientLi = $("<li>").attr("class", "recipe-li");
                         ingredientLi.html(ingredient.raw_text);
-                        // recipeIngredients = [];
                         recipeIngredients.append(ingredientLi);
                     })
                     Response[i].instructions.forEach(instruction => {
