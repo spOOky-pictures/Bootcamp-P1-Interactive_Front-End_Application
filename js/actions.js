@@ -43,8 +43,10 @@ const recipeIds = [];
 
 $(document).ready(function () {
     $(document).ajaxStart(function () {
+        console.log("start")
         $("#loading").addClass("loadOn");
     }).ajaxComplete(function () {
+        console.log("end")
         $("#loading").removeClass("loadOn");
     });
 });
@@ -82,7 +84,7 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
             if (String(Response[i].canonical_id).includes("recipe") && count < recipes) {
                 // defines all elements of the card with their attributes using jQuery
                 let recipeCardLink = $("<a>").attr({class: "card-link", href: "#recipePage"});
-                let recipeCard = $("<div>").attr("class", "card").css("width", "18rem");
+                let recipeCard = $("<div>").attr("class", "card");
                 let recipeCardImage = $("<img>").attr("class", "card-img-top");
                 let recipeCardBody = $("<div>").attr("class", "card-body");
                 let recipeCardTitle = $("<h5>").attr("class", "card-title");
