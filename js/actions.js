@@ -9,7 +9,7 @@ $(document).ready(function () {
 
     let historyString = localStorage.getItem("Previous Ingredients");
     //On load, local storage is pushed to screen
-    loadPreviousItems();
+    loadPreviousItems(); 
     
     //function to load historical searches to the screen as buttons
     function loadPreviousItems(){
