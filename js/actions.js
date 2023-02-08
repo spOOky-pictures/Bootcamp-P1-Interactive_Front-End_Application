@@ -53,7 +53,9 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
                 let recipeCardImage = $('<img class=img-fluid>').addClass("rounded-start").attr("id","recipe-img");
                 let recipeBodyDiv = $('<div class="col-8">').attr("id","body-div");
                 let recipeCardBody = $('<div class=card-body>');
-                let recipeCardTitle = $("<h5>").attr({class: "card-title"})
+                let recipeCardTitle = $("<h5>").attr({class: "card-title"});
+                let recipeID = Response[i].id;
+                recipeCard.attr("data-index",recipeID);
                 // attaches all elements to their respective parents to display a card in DOM
                 resultsRow.append(recipeCard);
                 recipeCard.append(recipeCardLink);
@@ -69,7 +71,14 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
                 recipeCardBody.append(recipeCardTitle);
                 
                 // pushed each found recipe to the "recipeIds" array 
-                recipeIds.push(Response[i].id);
+                recipeIds.push(recipeID);
+
+                //put an on click event listener on the children of the anchor tag and call getvideo function
+                recipeCardTitle.click(function(event){
+                    event.preventDefault()
+                    getVideo(recipeCard);
+
+                });
                 // increases "count" variable by 1 number
                 count++;
             }
@@ -156,3 +165,32 @@ $("#homeButton").on("click", function(){
     document.location.reload()
 })
 
+function getVideo(targetEl){
+    let id = targetEl.attr("data-index");
+    console.log(id)
+    const settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": `https://tasty.p.rapidapi.com/recipes/get-more-info?id=${id}`,
+        "method": "GET",
+        "headers": {
+            "X-RapidAPI-Key": "a3e58689c4msh05163be274f5a0fp1e482cjsn52c38c025a06",
+            "X-RapidAPI-Host": "tasty.p.rapidapi.com"
+        }
+    };
+    
+    $.ajax(settings).done(function (response) {
+        console.log(response)
+        $("#vid-modal").css({background:response.thumbnail_url})
+        if (response.original_video_url){
+            console.log("YES")
+           
+            console.log($(".modal-body").children()[0].children()[0].attr("src",response.original_video_url))
+        }else{
+            $(".modal-body").children("video")[0].children()[0].attr("src",response.thumbnail_url)
+        }
+       
+    });
+
+
+}
