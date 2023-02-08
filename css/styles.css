@@ -163,10 +163,15 @@
   justify-content: space-around;
 }
 
-#img-div{border: 2px solid var(--main-color)}
+#img-div{border: 2px solid var(--main-color);
+ 
+
+}
 
 #img-div, #body-div{
   position: relative;
+  z-index: -1;
+
 }
 
 div #recipe-img {

@@ -158,6 +158,7 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
 
                 // click event for each individual recipe result card that displays data from array in it's own preset div
                 recipeCardLink.click(function() {
+                    $('#modal-body').empty();
                     recipePage.show();
                     recipeImage.attr("src", Response[i].thumbnail_url);
                     recipeName.text(Response[i].name);
@@ -172,15 +173,22 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
                         instructionP.html(instruction.display_text);
                         recipeText.append(instructionP);
                     })
+
+                    $("#modal-title").text(Response[i].name);
                     // recipeYield.text(Response[i].yields);
-                    recipeVideo.attr("src", Response[i].original_video_url);
-                    recipeVideo.src = Response[i].original_video_url;
-                    videoContainer.append(recipeVideo);
+                    if (Response[i].original_video_url){
+                        const video = `<video width="400px" height="auto" controls>
+                        <source src="${Response[i].original_video_url}" id="recipe-video" type=video/mp4> 
+                        </video>`
+                        $('#modal-body').append(video)
+                    }else{
+                        const noVideo = `<h2> Sorry, this recipe doesn't have video </h2>`
+                        $('#modal-body').append(noVideo)
+                    };
                 })
                 // pushes each found recipe to the "recipeIds" array 
                 recipeIds.push({"id": Response[i].id, "image": Response[i].thumbnail_url, "name": Response[i].name, "ingredients": ingredientArray, "instructions": instructionArray, "yields": Response[i].yields, "video": Response[i].original_video_url});
                 
-                // console.log("video from API: ",Response[i].original_video_url)
                 // increases "count" variable by 1 number
                 count++;
             }
@@ -197,3 +205,33 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
 $("#homeButton").on("click", function(){
     document.location.reload()
 })
+
+function getVideo(targetEl){
+    let id = targetEl.attr("data-index");
+    console.log(id)
+    const settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": `https://tasty.p.rapidapi.com/recipes/get-more-info?id=${id}`,
+        "method": "GET",
+        "headers": {
+            "X-RapidAPI-Key": "a3e58689c4msh05163be274f5a0fp1e482cjsn52c38c025a06",
+            "X-RapidAPI-Host": "tasty.p.rapidapi.com"
+        }
+    };
+    
+    $.ajax(settings).done(function (response) {
+        console.log(response)
+        $("#vid-modal").css({background:response.thumbnail_url})
+        if (response.original_video_url){
+            // alert("YES")
+           
+            $("video").children("source").attr("src",response.original_video_url)
+        }else{
+            $("video").children("source").attr("src",response.thumbnail_url)
+        }
+       
+    });
+ 
+ 
+ }
