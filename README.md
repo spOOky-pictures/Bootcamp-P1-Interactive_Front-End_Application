@@ -21,13 +21,33 @@ The deployed application can be viewed via this [link](https://spooky-pictures.g
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+On load the page will display as follows:  
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+![Landing page of InFridge](./img/Screenshots/Landing-page-v1.PNG)  
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+This is the application landing page, on load, the user can see the application's logo, title, subheading, as well as an ingredient search bar. The users previous searches are also pulled from local storage and pushed to the page, as shown below the search bar in the image above.
+
+The user can type in an ingredient name and hit search, which will then send a query to the Tasty API. This will return 8 recipe's which will show as cards on the screen, as shown below:  
+
+![Search results](./img/Screenshots/Results-v1.PNG)  
+
+Whilst the API is loading the following loading GIF is shown on screen:  
+
+![Loading image](./img/Screenshots/loading-v1.PNG)  
+
+The user can then select a recipe of their choice from the list, which will then load all the recipe information - name of recipe, ingredients, method at the bottom of the screen. The Recipe page also loads in a second API (bottom right) that will suggest a random cocktail to the user, to inspire them for a drink. The page also loads a recipe video in a modal:  
+
+![Recipe Page](./img/Screenshots/Recipe-page-v1.PNG)  
+
+The Recipe video button when clicked will open the recipe video:  
+
+![Modal Video](./img/Screenshots/yesVideo-v1.PNG)  
+
+If no video is in the API - as is sometime the case, this message will show instead:  
+
+![No Modal video](./img/Screenshots/noVideo-v1.PNG)
+
+You can test some ideal pathways by searching for "Leek" then selecting "Winter Vegetable Gratin" to see a working video example.
 
 ## Credits
 
