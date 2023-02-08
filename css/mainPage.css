@@ -116,6 +116,11 @@ html, body {
     padding-top: 20px;
 }
 
+#modalButton {
+    background-color: crimson;
+}
+
+
 
 /*MEDIA QUERIES*/
 @media only screen and (max-width: 800px) {

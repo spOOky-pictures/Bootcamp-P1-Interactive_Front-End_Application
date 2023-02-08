@@ -78,15 +78,19 @@
   color: var(--bs-card-color);
   width: 70%;
 }
+
 .card-title{
   color: #fff;
   top: 40%;
   text-align: center;
   position: relative;
+  text
 }
+
 #drinks-card {
     margin-top: 20px;
 }
+
 .btn-success {
   background-color: rgb(160, 160, 149);
   color: black;
@@ -188,35 +192,44 @@ div #recipe-img {
   border: 1px solid black;
   padding:30px;
  justify-content: space-evenly;
-
-  
 }
 
 #recipe-image,#drink-card,#nutrition,#recipe-info,#vid-modal{
   border: 1px dotted black;
   margin:20px;
- 
- 
-  
-  
 }
 
 #drink-card{
-  background-color: pink;
+  background-color: #f3c384ab;
+  text-align: center;
 }
-#nutrition{
-  background-color: rgb(160, 60, 160);
+#nutrition {
+  background-color: #f3c384ab;
 }
 
 #recipe-info{
-  background-color: teal;
+  background-color: #f3c384ab;
   overflow-y: scroll;
   margin-left: 60px;
   height: 520px;
+  margin: black 5px dashed;
+}
+
+#recipe-name {
+  text-align: center;
+  text-shadow: black 20%;
+  font-style: italic;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+#recipe-ingredients {
+  font-size: larger;
+  font-weight: 200;
 }
 
 #vid-modal{
-  background-color: yellow;
+  background-color: #f3c384ab;
 }
 
 #recipe-image{
