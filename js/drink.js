@@ -37,7 +37,7 @@ $(".btn-primary").on("click", function(event) {
        "url": "https://drinks-digital1.p.rapidapi.com/v1/cocktails?offset=4&limit=20",
        "method": "GET",
        "headers": {
-          "X-RapidAPI-Key": "a3e58689c4msh05163be274f5a0fp1e482cjsn52c38c025a06",
+          "X-RapidAPI-Key": "7b3e3a16eemsh1d5ca9221cc5af1p13e3dajsnae28b950f9b1",
           "X-RapidAPI-Host": "drinks-digital1.p.rapidapi.com"
        }
     };
