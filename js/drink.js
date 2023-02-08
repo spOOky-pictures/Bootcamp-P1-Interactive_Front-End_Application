@@ -2,7 +2,7 @@
 
 
 //makes drink card  gives it card class so bootstrap treats it as card component
-var drinkCard = $("<div class=card>");
+var drinkCard = $("<div>");
 // drinkCard.addClass("col-lg-2 col-sm-12");
 //assign id of drink-card for css styling
 drinkCard.attr("id","drink-card")
@@ -30,8 +30,6 @@ drinkCardBody.append(drinkGenBtn)
 // .on("click") function associated with the drink button
 $(".btn-success").on("click", function(event) {
     event.preventDefault();
- 
- 
     // Constructing an URL for the Cocktails API
     const settings = {
        "async": true,
@@ -50,7 +48,6 @@ $(".btn-success").on("click", function(event) {
        console.log(response);
  
        var item = response[Math.floor(Math.random() * response.length)];
-       console.log(item);
        var title = item.cocktail_name;
        var description = item.description;
  

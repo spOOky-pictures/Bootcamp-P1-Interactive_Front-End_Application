@@ -1,8 +1,42 @@
-// -dropdown uses a predefined list of recipe categories
+
 // -clicking on search button takes search field value and recipe category to query API
 // -cards display last 3 recipes from an array stored in local storage
 // -searched ingredient gets stored in separate array and displayed in recently searched section
 // -clicking any of these buttons adds it's value to the search field with a space
+
+//Document ready function
+$(document).ready(function () {
+
+    let historyString = localStorage.getItem("Previous Ingredients");
+    //On load, local storage is pushed to screen
+    loadPreviousItems();
+    
+    //function to load historical searches to the screen as buttons
+    function loadPreviousItems(){
+        // validation for if the local storage is empty
+        if(!historyString){
+            return;
+        } else {
+            //for loop for the localStorage array that pushes them as buttons to the screen.
+            var historyArray = historyString.split(',');
+            //Slice ensures only the three most recent searches are pushed to screen.
+            var historyArraySlice = historyArray.slice(-3);
+            for(i = 0; i < historyArraySlice.length; i++){
+                //TODO need to replace id/class to actual HTML id/class for what is being appended 
+                var newItemBtn = $("<button>").text(historyArraySlice[i]);
+                newItemBtn.attr("class", "prevSearch");
+                $("#recentResults").append(newItemBtn);
+            }
+        }
+    }
+    
+    //Previous search buttons on click to push input to search bar
+    $(".prevSearch").on("click", function(event){
+        event.preventDefault();
+            var prevInput = this.innerHTML;
+            searchInput.val(prevInput);
+        });
+    })
 
 let resultsContainer = $("#resultsPage");
 
@@ -11,28 +45,31 @@ var searchButton = $(".searchButton");
 var searchInput = $("#homeScreen .searchInput");
 
 //Empty array for ingredients in local storage
-var previousSearches = [];
+const previousSearches = [];
 
 //On click function for search button
 searchButton.on("click", function(event){
     event.preventDefault();
     resultsContainer.empty();
     var userInput = searchInput.val().trim();
-//validation for empty user input
+    //validation for empty user input
     if(userInput === ""){
         return;
     } 
     else {
         $("#headerSearchBar").removeClass("d-none");
-    //     $("#homeScreen").addClass("d-none");
+        // $("#homeScreen").addClass("d-none");
         $("#resultsSection").removeClass("d-none");
-//Push user input into local storage
-previousSearches.push(userInput);
-localStorage.setItem("Previous Ingredients", previousSearches);
-// $('#homeScreen').css("display","none");
-// resultsDiv.css("display","flex");
-// triggers getRecipeIds function
-getRecipeIds(userInput);
+        if(localStorage.getItem("Previous Ingredients") != null){
+            previousSearches.push(localStorage.getItem("Previous Ingredients"))
+        }
+        //Push user input into local storage
+        previousSearches.push(userInput);
+        localStorage.setItem("Previous Ingredients", previousSearches);
+        // $('#homeScreen').css("display","none");
+        // resultsDiv.css("display","flex");
+        // triggers getRecipeIds function
+        getRecipeIds(userInput);
     }
 })
 
@@ -41,12 +78,11 @@ let mainDiv = $("resultsPage");
 // a variable that holds recipe IDs
 const recipeIds = [];
 
+// shows loader screen with animation when ajax call starts till it finishes
 $(document).ready(function () {
-    $(document).ajaxStart(function () {
-        console.log("start")
+    $(document).on("ajaxStart.firstCall",function () {
         $("#loading").addClass("loadOn");
-    }).ajaxComplete(function () {
-        console.log("end")
+    }).on("ajaxStop.firstCall", function () {
         $("#loading").removeClass("loadOn");
     });
 });
@@ -75,19 +111,22 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
         // defines number of recipes we want returned
         let recipes = 8;
         // a variable that holds recipe IDs
-        const recipeIds = [];
         // for loop that runs through each element of response array
         for (let i = 0; i < Response.length; i++) {
             // check if returned element's "canonical_id" key contains a word "recipe"
             // (making sure we only ever get returned recipes)
             // and also checks whether "count" variable has reached length of variable "recipes"
             if (String(Response[i].canonical_id).includes("recipe") && count < recipes) {
+                // CARD SECTION //
                 // defines all elements of the card with their attributes using jQuery
                 let recipeCardLink = $("<a>").attr({class: "card-link", href: "#recipePage"});
                 let recipeCard = $("<div>").attr("class", "card");
                 let recipeCardImage = $("<img>").attr("class", "card-img-top");
                 let recipeCardBody = $("<div>").attr("class", "card-body");
                 let recipeCardTitle = $("<h5>").attr("class", "card-title");
+                let recipeNutrition = $("#nutrition");
+                let videoContainer = $("<video>").attr("class", "videoContainer");
+                let recipeVideo = $("<source>").attr({id: "recipe-video", type: "video/mp4>", controls:"true"});
                 // attaches all elements to their respective parents to display a card in DOM
                 resultsContainer.append(recipeCardLink);
                 recipeCardLink.append(recipeCard);
@@ -96,20 +135,28 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
                 recipeCard.append(recipeCardBody);
                 recipeCardTitle.text(Response[i].name);
                 recipeCardBody.append(recipeCardTitle);
-                let ingredientArray = []
+                let ingredientArray = [];
+                // loop through array of ingredients and display each of them
                 Response[i].sections[0].components.forEach(ingredient => {
                     ingredientArray.push(ingredient.raw_text);
                 })
-                let instructionArray = []
+                let instructionArray = [];
+                // loop through array of instructions and display each of them
                 Response[i].instructions.forEach(instruction => {
                     instructionArray.push(instruction.display_text);
                 })
+
+                // RECIPE SECTION //
                 // recipe sections pulls recipe Name, Image, Ingredients and Instructions from API
                 let recipePage = $("#recipePage");
                 let recipeImage = $("#recipe-image");
                 let recipeName = $("#recipe-name");
                 let recipeIngredients = $("#recipe-ingredients");
                 let recipeText = $("#recipe-info");
+                // let recipeYield = $("#recipe-yield");
+                recipeNutrition.append(videoContainer);
+
+                // click event for each individual recipe result card that displays data from array in it's own preset div
                 recipeCardLink.click(function() {
                     recipePage.show();
                     recipeImage.attr("src", Response[i].thumbnail_url);
@@ -117,6 +164,7 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
                     Response[i].sections[0].components.forEach(ingredient => {
                         let ingredientLi = $("<li>").attr("class", "recipe-li");
                         ingredientLi.html(ingredient.raw_text);
+                        // recipeIngredients = [];
                         recipeIngredients.append(ingredientLi);
                     })
                     Response[i].instructions.forEach(instruction => {
@@ -124,55 +172,27 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
                         instructionP.html(instruction.display_text);
                         recipeText.append(instructionP);
                     })
+                    // recipeYield.text(Response[i].yields);
+                    recipeVideo.attr("src", Response[i].original_video_url);
+                    recipeVideo.src = Response[i].original_video_url;
+                    videoContainer.append(recipeVideo);
                 })
-                // pushed each found recipe to the "recipeIds" array 
-                recipeIds.push({id: Response[i].id, image: Response[i].thumbnail_url, name: Response[i].name, ingredients: ingredientArray, instructions: instructionArray});
+                // pushes each found recipe to the "recipeIds" array 
+                recipeIds.push({"id": Response[i].id, "image": Response[i].thumbnail_url, "name": Response[i].name, "ingredients": ingredientArray, "instructions": instructionArray, "yields": Response[i].yields, "video": Response[i].original_video_url});
+                
+                // console.log("video from API: ",Response[i].original_video_url)
                 // increases "count" variable by 1 number
                 count++;
-            }    
+            }
         }
     })
 };
 
-// -drink card pulls drink Name, Image and URL for randomly selected drink
-// -right-side section pulls recipe Image and Nutrition from API
+// console.log("video from array: ",recipeIds.video);
 
+// -drink card pulls drink Name and URL for randomly selected drink
+// -right-side section pulls recipe rating from API
 // -clicking on video button opens a modal that displays a recipe Video from API and auto-plays it
-
-//Document ready function
-$(document).ready(function () {
-
-//On load, local storage is pushed to screen
-loadPreviousItems();
-
-//function to load historical searches to the screen as buttons
-function loadPreviousItems(){
-    var historyString = localStorage.getItem("Previous Ingredients");
-    // validation for if the local storage is empty
-    if(!historyString){
-        return;
-    } else {
-        //for loop for the localStorage array that pushes them as buttons to the screen.
-        var historyArray = historyString.split(',');
-        //Slice ensures only the three most recent searches are pushed to screen.
-        var historyArraySlice = historyArray.slice(-3);
-        for(i = 0; i < historyArraySlice.length; i++){
-            //TODO need to replace id/class to actual HTML id/class for what is being appended 
-            var newItemBtn = $("<button>").text(historyArraySlice[i]);
-            newItemBtn.attr("class", "prevSearch");
-            $("#recentResults").append(newItemBtn);
-        }
-    }
-}
-
-//Previous search buttons on click to push input to search bar
-$(".prevSearch").on("click", function(event){
-    event.preventDefault();
-        var prevInput = this.innerHTML;
-        searchInput.val(prevInput);
-    });
-})
-
 // function for home button to refresh page and go back to original state
 $("#homeButton").on("click", function(){
     document.location.reload()
