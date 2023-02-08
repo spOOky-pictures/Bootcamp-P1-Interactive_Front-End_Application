@@ -4,6 +4,38 @@
 // -searched ingredient gets stored in separate array and displayed in recently searched section
 // -clicking any of these buttons adds it's value to the search field with a space
 
+let resultsContainer = $("#resultsPage");
+
+// Selectors for search button
+var searchButton = $(".searchButton");
+var searchInput = $("#homeScreen .searchInput");
+
+//Empty array for ingredients in local storage
+var previousSearches = [];
+
+//On click function for search button
+searchButton.on("click", function(event){
+    event.preventDefault();
+    resultsContainer.empty();
+    var userInput = searchInput.val().trim();
+//validation for empty user input
+    if(userInput === ""){
+        return;
+    } 
+    else {
+        $("#headerSearchBar").removeClass("d-none");
+    //     $("#homeScreen").addClass("d-none");
+        $("#resultsSection").removeClass("d-none");
+//Push user input into local storage
+previousSearches.push(userInput);
+localStorage.setItem("Previous Ingredients", previousSearches);
+// $('#homeScreen').css("display","none");
+// resultsDiv.css("display","flex");
+// triggers getRecipeIds function
+getRecipeIds(userInput);
+    }
+})
+
 // assign variable to "main" div
 let mainDiv = $("resultsPage");
 // a variable that holds recipe IDs
@@ -55,7 +87,7 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
                 let recipeCardBody = $("<div>").attr("class", "card-body");
                 let recipeCardTitle = $("<h5>").attr("class", "card-title");
                 // attaches all elements to their respective parents to display a card in DOM
-                mainDiv.append(recipeCardLink);
+                resultsContainer.append(recipeCardLink);
                 recipeCardLink.append(recipeCard);
                 recipeCardImage.attr("src", Response[i].thumbnail_url);
                 recipeCard.append(recipeCardImage);
@@ -105,42 +137,11 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
 
 // -clicking on video button opens a modal that displays a recipe Video from API and auto-plays it
 
-// Selectors for search button
-var searchButton = $(".searchButton");
-var searchInput = $("#homeScreen .searchInput");
-
-//Empty array for ingredients in local storage
-var previousSearches = [];
-
 //Document ready function
 $(document).ready(function () {
 
 //On load, local storage is pushed to screen
 loadPreviousItems();
-
-//On click function for search button
-searchButton.on("click", function(event){
-    event.preventDefault();
-    var resultsContainer = $("#resultsPage");
-    resultsContainer.empty();
-    var userInput = searchInput.val().trim();
-//validation for empty user input
-    if(userInput === ""){
-        return;
-    } 
-    else {
-        $("#headerSearchBar").removeClass("d-none");
-    //     $("#homeScreen").addClass("d-none");
-        $("#resultsSection").removeClass("d-none");
-//Push user input into local storage
-previousSearches.push(userInput);
-localStorage.setItem("Previous Ingredients", previousSearches);
-// $('#homeScreen').css("display","none");
-// resultsDiv.css("display","flex");
-// triggers getRecipeIds function
-getRecipeIds(userInput);
-    }
-})
 
 //function to load historical searches to the screen as buttons
 function loadPreviousItems(){
