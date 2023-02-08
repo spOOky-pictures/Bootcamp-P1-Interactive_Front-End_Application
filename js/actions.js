@@ -97,7 +97,7 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
         "url": `https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&q=${searchQuery}`,
         "method": "GET",
         "headers": {
-            "X-RapidAPI-Key": "8be18867b6msh6fc8d6aad5acc56p1976f9jsnf9fe02c89bd2",
+            "X-RapidAPI-Key": "7b3e3a16eemsh1d5ca9221cc5af1p13e3dajsnae28b950f9b1",
             "X-RapidAPI-Host": "tasty.p.rapidapi.com"
         }
     };
