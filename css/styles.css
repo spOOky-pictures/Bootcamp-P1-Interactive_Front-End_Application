@@ -6,7 +6,9 @@
     --box-shadow-hover: 0 1px 4px rgba(91, 99, 107, 0.8);
   }
 
-
+body{
+  background-color: #F55E61;
+}
 /* SEARCH BUTTON */
 .searchButton .submit {
     background-color: var(--main-color);
@@ -54,6 +56,11 @@
 .card-link{
   width: fit-content;
   text-decoration: none;
+}
+.card-link:hover{
+  box-shadow: var(--box-shadow-hover);
+  transform: scale(1.2);
+  z-index: 99;
 }
 .card {
   background-color: var(--main-color);
@@ -142,41 +149,19 @@
 }
 
 /* RECIPE CARDS */
-
 #results-row {
   margin-top: 150px;
 }
-
-#result-card {
-  position: relative;
-  cursor: pointer;
-  margin:5px;
-  box-shadow: var(--box-shadow);
-  background-color: var(--main-color);
-  border-radius: 2px;
-}
-
-#result-card:hover{
-  box-shadow: var(--box-shadow-hover);
-  transform: scale(1.2);
-  z-index: 99;
-}
-
 #results-row {
   justify-content: space-around;
 }
-
-#img-div{border: 2px solid var(--main-color);
- 
-
+#img-div{
+  border: 2px solid var(--main-color);
 }
-
 #img-div, #body-div{
   position: relative;
   z-index: -1;
-
 }
-
 div #recipe-img {
   width: 100%;
   height: 100%;
@@ -185,24 +170,17 @@ div #recipe-img {
   object-fit: cover;
   position: absolute;
 }
-
-
 #result-card h5 {
   color: white;
   font-size: large;
 }
-
 .recipe-row{
-  border: 1px solid black;
   padding:30px;
- justify-content: space-evenly;
+  justify-content: space-evenly;
 }
-
 #recipe-image,#drink-card,#nutrition,#recipe-info,#vid-modal{
-  border: 1px dotted black;
   margin:20px;
 }
-
 #drink-card{
   background-color: #f3c384ab;
   text-align: center;
@@ -210,7 +188,6 @@ div #recipe-img {
 #nutrition {
   background-color: #f3c384ab;
 }
-
 #recipe-info{
   background-color: #f3c384ab;
   overflow-y: scroll;
@@ -218,7 +195,6 @@ div #recipe-img {
   height: 520px;
   margin: black 5px dashed;
 }
-
 #recipe-name {
   text-align: center;
   text-shadow: black 20%;
@@ -231,7 +207,6 @@ div #recipe-img {
   font-size: larger;
   font-weight: 200;
 }
-
 #vid-modal{
   background-color: #f3c384ab;
 }
@@ -243,16 +218,123 @@ div #recipe-img {
 }
 /*MEDIA QUERIES*/
 
-@media only screen and (max-width: 800px) {
-  #appLogo {
-      display: none;
-}
-
+.searchHeader {
+  box-shadow: 0px 20px 21px 3px rgba(0,0,0,0.75);
+  width: 100%;
+  padding: 0;
+  max-height: 100px;
+  min-height: 100px;
+  }
+  
+  .searchForm {
+      margin: auto;
+      width: 100%;
+  }
+  
+  .searchBarContainer {
+      height: 100%;
+      display: flex;
+  }
+  
+  .homeScreen {
+      background-color: antiquewhite;
+      margin: auto;
+  }
+  
+  .logoContainer {
+      min-height: 200px;
+  }
+  
+  .descriptionText {
+      min-height: 100px;
+      font-weight: 500;
+      font-size: 25px;
+      font-style: italic;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  #appName {
+      font-weight: 700;
+      font-size: 4rem;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  .search {
+      margin-bottom: 100px;
+  }
+  
+  .recentSearches {
+      min-height: 100px;
+  }
+  
+  html, body {
+      height: 100%;
+      background-color: antiquewhite;
+  }
+  
+  .pageWrapper {
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0;
+      overflow-y: scroll;
+      flex-direction: column;
+  }
+  .searchInput {
+      height: 100%;
+      background-color: rgb(206, 71, 71);
+      color: #fff;
+  }
+  .searchInput:focus {
+      background-color: rgb(206, 71, 71);
+      color: rgb(255, 255, 255);
+  }
+  .searchInput::placeholder {
+      color: rgb(253, 253, 253);
+  }
+  .searchButton {
+      background-color: rgb(206, 71, 71);
+      border-color:  rgb(206, 71, 71);
+  }
+  .homeButton {
+    background-color: rgb(206, 71, 71);
+    border-color:  rgb(206, 71, 71);
+  }
+  .recentItem {
+    background-color: rgb(206, 71, 71);
+  }
+  .resultItem {
+    border: solid black 1px;
+    min-height: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  #recentResults {
+    display: flex;
+    align-items: center;
+    flex-grow: 3 !important; 
+  }
+  .appLogo {
+    padding: 20px;
+  }
+  #results-row {
+    min-height: 1000px;
+  }
+  #resultsDiv {
+    padding-top: 20px;
+  }
+  #modalButton {
+    background-color: crimson;
+  }
+  /*MEDIA QUERIES*/
+  @media only screen and (max-width: 800px) {
+    #appLogo {
+        display: none;
+  }
   #appName {
       font-size: 35px;
       padding: none;
   }
-
   .descriptionText {
       font-size: 21px;
       padding: none;
