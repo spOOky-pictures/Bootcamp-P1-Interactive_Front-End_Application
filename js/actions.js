@@ -75,7 +75,7 @@ function getRecipeIds(searchQuery){ //<-- TODO: make "searchQuery" automate from
 
                 //put an on click event listener on the children of the anchor tag and call getvideo function
                 recipeCardTitle.click(function(event){
-                    event.preventDefault()
+                    // event.preventDefault()
                     getVideo(recipeCard);
 
                 });
@@ -183,14 +183,14 @@ function getVideo(targetEl){
         console.log(response)
         $("#vid-modal").css({background:response.thumbnail_url})
         if (response.original_video_url){
-            console.log("YES")
+            // alert("YES")
            
-            console.log($(".modal-body").children()[0].children()[0].attr("src",response.original_video_url))
+            $("video").children("source").attr("src",response.original_video_url)
         }else{
-            $(".modal-body").children("video")[0].children()[0].attr("src",response.thumbnail_url)
+            $("video").children("source").attr("src",response.thumbnail_url)
         }
        
     });
-
-
-}
+ 
+ 
+ }
