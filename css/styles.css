@@ -17,19 +17,76 @@
     box-shadow: var(--box-shadow);
     color: white;
 }
-
+/* loading overlay div with animation */
+#loading{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  background-color: #00000080;
+  background-image: url(../img/loading_pot.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 9;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 300px;
+  font-weight: 900;
+  font-size: 2em;
+  color: #8bc34a;
+  padding-top: 300px;
+}
+.loadOn{
+  display: flex !important;
+}
+#resultsPage{
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 10px;
+  gap: 10px;
+}
 /* DRINKS CARD */
+.card-link{
+  width: fit-content;
+  text-decoration: none;
+}
 .card {
   background-color: var(--main-color);
   border-radius: 0px;
-  margin-left: 10px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  width: 700px;
+  height: 150px;
 }
-
+.card:hover{
+  box-shadow: 0 10px 10px -5px #7e2424;
+}
 .card-img-top {
-  margin-top: 10px;
   border-radius: 0px;
+  width: 30%;
+  height: 100%;
+  object-fit: cover;
 }
-
+.card-body{
+  padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+  color: var(--bs-card-color);
+  width: 70%;
+}
+.card-title{
+  color: #fff;
+  top: 40%;
+  text-align: center;
+  position: relative;
+}
+#drinks-card {
+    margin-top: 20px;
+}
 .btn-success {
   background-color: rgb(160, 160, 149);
   color: black;
@@ -81,28 +138,29 @@
   font-weight: 700;
 }
 
+/* RECIPE CARDS */
+
+#results-row {
+  margin-top: 150px;
+}
+
 #result-card {
   position: relative;
   cursor: pointer;
   margin:5px;
   box-shadow: var(--box-shadow);
+  background-color: var(--main-color);
+  border-radius: 2px;
 }
+
 #result-card:hover{
   box-shadow: var(--box-shadow-hover);
-}
-.card-link {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
- visibility: hidden;
-
-  text-decoration: none;
+  transform: scale(1.2);
+  z-index: 99;
 }
 
 #results-row {
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 #img-div{border: 2px solid var(--main-color);
@@ -123,6 +181,12 @@ div #recipe-img {
   max-height: 100%;
   object-fit: cover;
   position: absolute;
+}
+
+
+#result-card h5 {
+  color: white;
+  font-size: large;
 }
 
 .recipe-row{
@@ -153,6 +217,7 @@ div #recipe-img {
   background-color: teal;
   overflow-y: scroll;
   margin-left: 60px;
+  height: 520px;
 }
 
 #vid-modal{
@@ -161,5 +226,23 @@ div #recipe-img {
 
 #recipe-image{
   background-color: brown;
+  width: 100%;
+  height: 100%;
+}
+/*MEDIA QUERIES*/
+
+@media only screen and (max-width: 800px) {
+  #appLogo {
+      display: none;
 }
 
+  #appName {
+      font-size: 35px;
+      padding: none;
+  }
+
+  .descriptionText {
+      font-size: 21px;
+      padding: none;
+  }
+}

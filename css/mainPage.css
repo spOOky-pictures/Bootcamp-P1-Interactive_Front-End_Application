@@ -115,3 +115,21 @@ html, body {
 #resultsDiv {
     padding-top: 20px;
 }
+
+
+/*MEDIA QUERIES*/
+@media only screen and (max-width: 800px) {
+    #appLogo {
+        display: none;
+}
+
+    #appName {
+        font-size: 35px;
+        padding: none;
+    }
+
+    .descriptionText {
+        font-size: 21px;
+        padding: none;
+    }
+}
